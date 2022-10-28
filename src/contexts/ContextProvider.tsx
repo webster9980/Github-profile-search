@@ -27,7 +27,7 @@ import { createContext, ReactNode, useState } from "react";
     children: ReactNode
   }
 
-  interface IStarredReposProps {
+  export interface IStarredReposProps {
     starredRepos: Array<{
       id: number;
       full_name: string;
@@ -45,7 +45,7 @@ export const UserContextProvider = createContext({} as any)
 export function ContextProvider({children}: UserProviderProps){
 
     const [userRepo, setUserRepo] = useState<UserProps[]>([])
-    const [starredRepos, setStarredRepos] = useState<IStarredReposProps>()
+    const [starredRepos, setStarredRepos] = useState<IStarredReposProps[]>([])
     return(
         <UserContextProvider.Provider value={{ userRepo, setUserRepo, starredRepos, setStarredRepos}}>
             {children}

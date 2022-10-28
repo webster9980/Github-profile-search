@@ -2,13 +2,14 @@ import api from "../../services/api";
 import {useContext, useState} from 'react'
 import { ButtonHeader, DivHeaderContainer, HeaderContainer, InputContainer } from "./styles";
 import { RepositoryProps, UserContextProvider, UserProps } from "../../contexts/ContextProvider";
+import { FaUserAlt } from "react-icons/fa";
 
 
 
 export function HeaderSearch(){
     const [userSearched, setUserSearched] = useState('')
 
-    const {userRepo, setUserRepo } = useContext(UserContextProvider)
+    const {setUserRepo, setStarredRepos } = useContext(UserContextProvider)
 
     async function handleSubmit() {
       if(!userSearched){
@@ -20,12 +21,12 @@ export function HeaderSearch(){
             `/users/${userSearched}/starred`,
           );
           setUserRepo(userFind.data)
+          setStarredRepos(starred.data)
         }catch(err){
           console.log(err)
         }
       }
     }
-    console.log(userRepo)
     return(
         <HeaderContainer>
             <h1>Find Profiles on Github</h1>
