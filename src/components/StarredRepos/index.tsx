@@ -1,12 +1,12 @@
-import { CardRepo, CardStar, Container, Header, Img, TitleAndDesc } from "./styles";
+import { CardRepo, CardStar, Container, H1, Header, Img, TitleAndDesc } from "./styles";
 import {useContext} from 'react'
 import { UserContextProvider } from "../../contexts/ContextProvider";
 import { FaStar } from "react-icons/fa";
 export function StarredRepos(){
     const { starredRepos } = useContext(UserContextProvider)
-    console.log(starredRepos)
     return(
         <Container>
+            <H1><FaStar />Starred repositories</H1>
             {starredRepos.map(item => {
                 return (
                     <CardRepo key={item.id}>

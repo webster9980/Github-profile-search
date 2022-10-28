@@ -10,6 +10,10 @@ export const Container = styled('div', {
     gap: '0.5rem',
 })
 
+export const H1 = styled('h1', {
+    color: 'rgb(0, 204, 0)',
+})
+
 export const CardRepo = styled('section', {
     background: '#fff',
     display: 'flex',
