@@ -11,7 +11,7 @@ export const Container = styled('div', {
 });
 
 export const H1 = styled('h1', {
-    color: 'rgb(0, 204, 0)',
+    color: '#00875F',
 });
 
 export const CardRepo = styled('section', {

@@ -3,6 +3,8 @@ import {useContext} from 'react'
 import { UserContextProvider } from "../../contexts/UserContextProvider";
 import { FaStar } from "react-icons/fa";
 
+import { RepositoryProps } from '../../contexts/UserContextProvider';
+
 export function StarredRepos(){
 
     const { starredRepos } = useContext(UserContextProvider)
@@ -10,7 +12,7 @@ export function StarredRepos(){
     return(
         <Container>
             <H1><FaStar />Starred repositories</H1>
-            {starredRepos.map(item => {
+            {starredRepos.map((item: RepositoryProps) => {
                 return (
                     <CardRepo key={item.id}>
                             <div>

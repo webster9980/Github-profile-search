@@ -34,10 +34,11 @@ export const NameProfile = styled('div', {
 
 export const H2 = styled('h2', {
     fontSize: '1.5rem',
+    color: '#fff'
 });
 
 export const Span = styled('span', {
-    color: '#3b3b3b',
+    color: '#fff',
     textAlign: 'justify'
 });
 
@@ -54,5 +55,9 @@ export const Section = styled('section', {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    color: '#00CC00',
+    color: '#00875F',
+
+    span: {
+        color: '#fff'
+    }
 });

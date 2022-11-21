@@ -3,7 +3,10 @@ import { styled } from '@stitches/react';
 export const HeaderContainer = styled('header', {
     width: '100%',
     maxWidth: '800px',
-    margin: '0.5rem auto',
+    margin: '2rem auto',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem'
 });
 
 export const DivHeaderContainer = styled('div', {
@@ -21,7 +24,7 @@ export const InputContainer = styled('input', {
     width: '400px',
     padding: '0.5rem 1rem',
     borderRadius: '6px',
-    border: '2px solid #00FF00',
+    border: '2px solid #00875F',
     outline: '0'
 });
 
@@ -30,13 +33,18 @@ export const ButtonHeader = styled('button', {
     borderRadius: '6px',
     border: '0',
     color: '#fff',
-    background: '#00FF00',
+    background: '#00875F',
     fontWeight: '600',
     fontSize: '1rem',
     cursor: 'pointer',
 
     '&:disabled': {
-        background: '#088A08',
+        opacity: 0.6,
         cursor: 'not-allowed'
     }
 });
+
+export const TituloH1 = styled('h1', {
+    color: '#fff',
+    fontSize: '2rem'
+})

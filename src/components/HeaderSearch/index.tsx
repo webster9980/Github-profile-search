@@ -1,6 +1,6 @@
 import api from "../../services/api";
 import {useContext, useState} from 'react'
-import { ButtonHeader, DivHeaderContainer, HeaderContainer, InputContainer } from "./styles";
+import { ButtonHeader, DivHeaderContainer, HeaderContainer, InputContainer, TituloH1 } from "./styles";
 import { RepositoryProps, UserContextProvider, UserProps } from "../../contexts/UserContextProvider";
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -57,7 +57,7 @@ export function HeaderSearch(){
 
     return(
         <HeaderContainer>
-            <h1>Find Profiles on Github</h1>
+            <TituloH1>Find Profiles on Github</TituloH1>
             <form onSubmit={handleSubmit(handleSubmitSearch)}>
               <DivHeaderContainer>
                   <InputContainer 

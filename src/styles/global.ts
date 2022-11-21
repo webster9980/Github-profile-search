@@ -9,6 +9,6 @@ export const globalStyles = globalCss({
     },
     'body': {
         fontFamily: 'Roboto, sans-serif',
-        background: '#E2E2E2'
+        background: '#121214',
     }
   });
