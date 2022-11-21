@@ -55,4 +55,4 @@ export const Section = styled('section', {
     alignItems: 'center',
     gap: '0.5rem',
     color: '#00CC00',
-})
+});

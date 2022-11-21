@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { UserContextProvider } from "../../contexts/ContextProvider";
+import { UserContextProvider } from "../../contexts/UserContextProvider";
 import { Container, DescProfile, H2, ImgProfile, NameProfile, Profile, ContainerInfo, Span, Section } from "./styles";
 import { FaBook, FaUserCheck, FaUserFriends } from 'react-icons/fa';
 
 export function Repos(){
+
     const {userRepo} = useContext(UserContextProvider)
+    
     return(
         <Container>
             <Profile>
@@ -23,21 +25,21 @@ export function Repos(){
                     <FaUserFriends size={32} />
                     {userRepo.followers}
                     <Span>
-                        Seguidores
+                        Followers
                     </Span>
                 </Section>
                 <Section>
                     <FaUserCheck size={32} />
                     {userRepo.following}
                     <Span>
-                        Seguindo
+                        Following
                     </Span>
                 </Section>
                 <Section>
                     <FaBook size={32} />
                     {userRepo.public_repos}
                     <Span>
-                        Repositórios
+                        Repositories
                     </Span>
                 </Section>
             </ContainerInfo>

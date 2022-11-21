@@ -15,7 +15,7 @@ export const DivHeaderContainer = styled('div', {
 
 export const Form = styled('form', {
     width: '100%',
-})
+});
 
 export const InputContainer = styled('input', {
     width: '400px',
@@ -23,7 +23,7 @@ export const InputContainer = styled('input', {
     borderRadius: '6px',
     border: '2px solid #00FF00',
     outline: '0'
-})
+});
 
 export const ButtonHeader = styled('button', {
     padding: '0.5rem 1rem',
@@ -34,4 +34,9 @@ export const ButtonHeader = styled('button', {
     fontWeight: '600',
     fontSize: '1rem',
     cursor: 'pointer',
-})
+
+    '&:disabled': {
+        background: '#088A08',
+        cursor: 'not-allowed'
+    }
+});

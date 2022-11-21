@@ -1,36 +1,41 @@
 import api from "../../services/api";
 import {useContext, useState} from 'react'
 import { ButtonHeader, DivHeaderContainer, HeaderContainer, InputContainer } from "./styles";
-import { RepositoryProps, UserContextProvider, UserProps } from "../../contexts/ContextProvider";
-import { FaUserAlt } from "react-icons/fa";
+import { RepositoryProps, UserContextProvider, UserProps } from "../../contexts/UserContextProvider";
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-
+import { useForm } from "react-hook-form";
 
 export function HeaderSearch(){
+    const [userSearched, setUserSearched] = useState('')
+
+    const {setUserRepo, setStarredRepos } = useContext(UserContextProvider)
+
+    const { 
+      handleSubmit,
+      formState: { isSubmitting } 
+    } = useForm()
+
     const showToastMessageEmpty = () => {
       toast.warning('Campo vazio', {
           position: toast.POSITION.TOP_RIGHT
       });
     };
+
     const showToastMessageSucess = () => {
       toast.success('Usuario encontrado', {
           position: toast.POSITION.TOP_RIGHT
       });
     };
+
     const showToastMessageNotfound = () => {
       toast.warning('Usuario não encontrado', {
           position: toast.POSITION.TOP_RIGHT
       });
     };
-    const [userSearched, setUserSearched] = useState('')
 
-    const {setUserRepo, setStarredRepos } = useContext(UserContextProvider)
-
-    async function handleSubmit() {
+    async function handleSubmitSearch() {
       if(!userSearched){
         console.log('esta vazio')
       }else{
@@ -49,19 +54,23 @@ export function HeaderSearch(){
         }
       }
     }
+
     return(
         <HeaderContainer>
             <h1>Find Profiles on Github</h1>
-            <DivHeaderContainer>
-                <InputContainer 
-                  type='text' 
-                  placeholder="webster9980" 
-                  name='user' 
-                  onChange={e => setUserSearched(e.target.value)}
-                />
-                <ButtonHeader onClick={userSearched === '' ? showToastMessageEmpty : handleSubmit}>Search</ButtonHeader>
-                <ToastContainer />
-            </DivHeaderContainer>
+            <form onSubmit={handleSubmit(handleSubmitSearch)}>
+              <DivHeaderContainer>
+                  <InputContainer 
+                    type='text' 
+                    placeholder="webster9980" 
+                    name='user' 
+                    onChange={e => setUserSearched(e.target.value)}
+                    required
+                  />
+                  <ButtonHeader type='submit' disabled={isSubmitting}>Search</ButtonHeader>
+                  <ToastContainer />
+              </DivHeaderContainer>
+            </form>
         </HeaderContainer>
     );
 }
